@@ -12,7 +12,7 @@ export const fetchGreeting = createAsyncThunk(
   async () => {
     const response = await axios.get(URL);
     return response.data;
-  }
+  },
 );
 
 const greetingsSlice = createSlice({
@@ -21,6 +21,7 @@ const greetingsSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchGreeting.fulfilled]: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
       state.greeting = action.payload;
     },
   },
